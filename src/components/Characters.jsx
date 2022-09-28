@@ -9,16 +9,16 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Characters = (item) => {
+const Characters = () => {
   const [characters, setCharacters] = useState([]);
-  console.log("before use effect");
+  
 
   useEffect(() => {
-     console.log("useeffect");
+     
     const getCharacters = async () => {
       try {
         const res = await axios.get(`http://localhost:8080/characters/1`);
-        console.log("characters out of getCharacters function is", res);
+        
         setCharacters(res.data.results);
       } catch (err) {}
     };
@@ -27,9 +27,10 @@ const Characters = (item) => {
 
   return (
     <Container>
-      {characters.map((item) => (
-        <Character item={item} key={item} />,
-        console.log("item in container", item.name)
+      {console.log(characters)}
+      {characters.map((item, i) => (
+        <Character item={item} key={i} />
+
         ))}
     </Container>
   );

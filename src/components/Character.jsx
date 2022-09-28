@@ -1,21 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Container = styled.div`
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
+font-size: 30px;
+`;
+const Label = styled.div`
+  font-size: 30px;
 `;
 
-
 const Character = (item) => {
-    console.log("this is item", item)
+     console.log("this is itemss", item.item)
   return (
     
     <Container>
-      <span>{item.name}</span>,
-      {console.log("item name", item.name)}
-      <label>test</label>
+      <Label>
+        {item.name}
+      test
+      </Label>
+        
+      
     </Container>
   );
 };
