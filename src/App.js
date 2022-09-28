@@ -1,5 +1,6 @@
 
 import './App.css';
+import Character from './components/Character';
 import Characters from './components/Characters';
 import Header from './components/Header';
 
@@ -8,6 +9,7 @@ function App() {
     <>
     <Header/>
     <Characters/>
+    <Character/>
     </>
   );
 }
