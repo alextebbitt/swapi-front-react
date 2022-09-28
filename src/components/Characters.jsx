@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Container = styled.div`
-  height: 60px;
   
-  justify-content: space-between;
+  display: grid;
+  
 `;
 const Characters = () => {
   const [characters, setCharacters] = useState([]);

@@ -2,27 +2,51 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-font-size: 30px;
-display: flex;
+  padding-top: 50px;
 `;
 const Label = styled.div`
-  font-size: 30px;
+  margin: 19px;
+  padding: 15px;
+  max-width: 90%;
+  border: 1px solid #777;
+  border-raduis: 25px;
 `;
-
+const EyeColor = styled.div`
+  font-size: 10px;
+`;
+const Name = styled.div`
+  font-size: 20px;
+`;
+const Height = styled.div`
+  font-size: 10px;
+`;
+const Weight = styled.div`
+  font-size: 10px;
+`;
+const Gender = styled.div`
+  font-size: 10px;
+`;
+const SkinColor = styled.div`
+  font-size: 10px;
+`;
+const HairColor = styled.div`
+  font-size: 10px;
+`;
 const Character = (props) => {
   console.log("this is itemss", props.item);
 
   return (
-    
-     <Container>
+    <Container>
       <Label>
-      {/* {JSON.stringify(props.item)} */}
-      
-      {props?.item?.name}
-      
+        <Name>Name: {props?.item?.name}</Name>
+        <Height>Height: {props?.item?.height}</Height>
+        <Weight>Weight: {props?.item?.mass}</Weight>
+        <Gender>Gender: {props?.item?.gender}</Gender>
+        <EyeColor> Eye-Color: {props?.item?.eye_color}</EyeColor>
+        <SkinColor> Skin-Color: {props?.item?.skin_color}</SkinColor>
+        <HairColor> Hair-Color: {props?.item?.hair_color}</HairColor>
       </Label>
-       </Container>
-    
+    </Container>
   );
 };
 
