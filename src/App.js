@@ -1,7 +1,8 @@
 
 import './App.css';
-import Character from './components/Character';
+
 import Characters from './components/Characters';
+import Footer from './components/Footer';
 import Header from './components/Header';
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <>
     <Header/>
     <Characters/>
-    <Character/>
+    <Footer/>
+    
     </>
   );
 }
