@@ -42,7 +42,7 @@ const Info = styled.div`
   column-count: 4;
 `;
 const Character = (props) => {
-  console.log("this is itemss", props.item);
+  
 
   return (
     <Container>
