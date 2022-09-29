@@ -34,12 +34,15 @@ const Input = styled.input`
 
 const Header = () => {
 const [query, setQuery] = useState("")
+const [data, setData] = useState("");
 
 useEffect(() => {
   const fetchCharacters = async () => {
-    const res = await axios.get("http://localhost:8080/search")
-  }
-})
+    const res = await axios.get(`http://localhost:8080/search/${query}`);
+    setData(res.data);
+  };
+  fetchCharacters()
+}, [query])
 
   return (
     <Container>
@@ -47,7 +50,7 @@ useEffect(() => {
       <Center>Star Wars</Center>
       <Right>
         <SearchContainer>
-          <Input placeholder="Search"></Input>
+          <Input placeholder="Search" onChange={(e) => setQuery(e.target.value)}></Input>
           <SearchIcon style={{ color: "grey", fontSize: 16 }}
           ></SearchIcon>
         </SearchContainer>
