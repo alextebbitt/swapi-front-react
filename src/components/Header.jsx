@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
+import axios from "axios";
 
 const Container = styled.div`
   height: 60px;
@@ -32,6 +33,14 @@ const Input = styled.input`
 `;
 
 const Header = () => {
+const [query, setQuery] = useState("")
+
+useEffect(() => {
+  const fetchCharacters = async () => {
+    const res = await axios.get("http://localhost:8080/search")
+  }
+})
+
   return (
     <Container>
       <Left>EN</Left>
@@ -39,7 +48,8 @@ const Header = () => {
       <Right>
         <SearchContainer>
           <Input placeholder="Search"></Input>
-          <SearchIcon style={{ color: "grey", fontSize: 16 }}></SearchIcon>
+          <SearchIcon style={{ color: "grey", fontSize: 16 }}
+          ></SearchIcon>
         </SearchContainer>
       </Right>
     </Container>
