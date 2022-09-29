@@ -9,7 +9,9 @@ const Label = styled.div`
   padding: 15px;
   max-width: 90%;
   border: 1px solid #777;
-  border-raduis: 25px;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: rgba(0,0,0, 0.35) 0px 5px 15px;
 `;
 const EyeColor = styled.div`
   font-size: 10px;
