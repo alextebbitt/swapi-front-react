@@ -8,17 +8,12 @@ const Container = styled.div`
   height: 60px;
   display: flex;
   justify-content: space-between;
-
- 
 `;
-const SearchDiv = styled.div`
-
-`;
+const SearchDiv = styled.div``;
 const Left = styled.div`
   margin: 10px 30px;
 `;
 const Center = styled.div`
-  
   font-size: 40px;
 `;
 const Right = styled.div`
@@ -36,20 +31,32 @@ const Input = styled.input`
 `;
 
 const Header = () => {
-const [query, setQuery] = useState("")
-const [data, setData] = useState("");
-console.log("data is", data)
+  const [query, setQuery] = useState("");
+  const [data, setData] = useState([]);
+  console.log("data is", data);
 
-useEffect(() => {
-  const fetchCharacters = async () => {
-    const res = await axios.get(`http://localhost:8080/search/${query}`);
-    console.log("query", query)
-    setData(res?.data?.results);
-    console.log("res.data is", res?.data?.results)
-  };
-  if (query.length === 0 || query.length > 2) fetchCharacters()
-}, [query])
-const character = data?.map((item, i) => <Character item={item} key={i} />);
+  useEffect(() => {
+     console.log("query", query);
+     console.log("type of ",typeof query);
+    
+    const fetchCharacters = async () => {
+      if(query === "") {
+        return ; 
+      }
+      const res = await axios.get(`http://localhost:8080/search/${query}`);
+     
+      setData(res?.data?.results);
+      console.log("res.data is", res?.data?.results);
+    };
+    console.log("ifstatement", query);
+if(query.length === 0) {
+  
+} else {
+
+  fetchCharacters();
+}
+  }, [query]);
+  
 
   return (
     <>
@@ -66,11 +73,17 @@ const character = data?.map((item, i) => <Character item={item} key={i} />);
           </SearchContainer>
         </Right>
       </Container>
+
       <SearchDiv>
-        {/* {data.map((item, i) => <Character item={item} key={i} />
-        );
-      } */}
-        {character}
+        {data.length !== 10 ?
+          data?.map((item, i) => (
+            <div name="id">
+              <Character item={item} key={i} />
+            </div>
+          )) : null
+
+        }
+        
       </SearchDiv>
     </>
   );

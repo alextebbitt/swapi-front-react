@@ -10,17 +10,22 @@ const Container = styled.div`
   
 `;
 const Characters = () => {
+
+
+  const pageNumber = 1
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
     try {
-      const res = await axios.get(`http://localhost:8080/characters/1`);
+      const res = await axios.get(`http://localhost:8080/characters/${pageNumber}`);
 
       setCharacters(res.data.results);
     } catch (err) {
       console.log(err);
     }
   };
+
+  
   useEffect(() => {
     getCharacters();
   }, []);
@@ -34,6 +39,9 @@ const Characters = () => {
       {console.log("characters outside", characterOutside)}
       {characterOutside}
     </Container>
+
+
+
   );
 };
 
