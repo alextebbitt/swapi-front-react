@@ -48,7 +48,6 @@ const Characters = () => {
 
   useEffect(() => {
     getCharacters();
-    console.log(pageNumber);
   }, []);
 
   return (
