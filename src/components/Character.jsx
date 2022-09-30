@@ -39,19 +39,14 @@ const BirthYear = styled.div`
   font-size: 15px;
 `;
 
-const Films = styled.div`
-  font-size: 15px;
-`;
-
-
 const Info = styled.div`
   display: flex
   flex-direction: column;
   column-count: 4;
 `;
+
 const Character = (props) => {
   
-
   return (
     <Container>
       <Wrapper>
@@ -64,7 +59,6 @@ const Character = (props) => {
           <SkinColor> Skin-Color: {props?.item?.skin_color}</SkinColor>
           <HairColor> Hair-Color: {props?.item?.hair_color}</HairColor>
           <BirthYear> Birth-year: {props?.item?.birth_year}</BirthYear>
-          {/* <Films> films: {props?.item?.films}</Films> */}
         </Info>
       </Wrapper>
     </Container>

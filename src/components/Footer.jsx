@@ -8,6 +8,7 @@ import styled from "styled-components";
 const FooterDiv = styled.div`
   background-color: black;
 `;
+
 const Logo = styled.div`
   display: flex;
   align-items: center;
@@ -16,13 +17,13 @@ const Logo = styled.div`
   gap: 2rem;
   font-size: 35px;
 `;
+
 const Copy = styled.p`
   color: aliceblue;
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 2rem;
-
   font-size: 20px;
 `;
 
@@ -43,7 +44,7 @@ const Footer = () => {
           <InstagramIcon />
         </a>
       </Logo>
-      <Copy>&copy; 2022 Star wars ---(Alex)--- All rights reserved.</Copy>
+      <Copy>&copy; 2022 Star wars ---(Alex and Woztell)--- All rights reserved.</Copy>
     </FooterDiv>
   );
 };

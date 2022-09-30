@@ -9,16 +9,23 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const SearchDiv = styled.div``;
+
+const SearchDiv = styled.div`
+  padding-bottom: 10px;
+`;
+
 const Left = styled.div`
   margin: 10px 30px;
 `;
+
 const Center = styled.div`
   font-size: 40px;
 `;
+
 const Right = styled.div`
   margin: 10px 30px;
 `;
+
 const SearchContainer = styled.div`
 border: 1px solid lightgrey;
 display: flex;
@@ -33,27 +40,17 @@ const Input = styled.input`
 const Header = () => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState([]);
-  console.log("data is", data);
 
   useEffect(() => {
-     console.log("query", query);
-     console.log("type of ",typeof query);
-    
     const fetchCharacters = async () => {
-      if(!query) {
-        return ; 
+      if (!query) {
+        return;
       }
       const res = await axios.get(`http://localhost:8080/search/${query}`);
-     
       setData(res?.data?.results);
-      console.log("res.data is", res?.data?.results);
     };
-    console.log("ifstatement", query);
-
-  fetchCharacters();
-
+    fetchCharacters();
   }, [query]);
-  
 
   return (
     <>
@@ -72,15 +69,13 @@ const Header = () => {
       </Container>
 
       <SearchDiv>
-        {data.length !== 10 ?
-          data?.map((item, i) => (
-            <div name="id">
-              <Character item={item} key={i} />
-            </div>
-          )) : null
-
-        }
-        
+        {data.length !== 10
+          ? data?.map((item, i) => (
+              <div name="id">
+                <Character item={item} key={i} />
+              </div>
+            ))
+          : null}
       </SearchDiv>
     </>
   );

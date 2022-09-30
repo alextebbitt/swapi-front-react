@@ -16,18 +16,16 @@ const ContainerArrows = styled.div`
   justify-content: center;
   cursor: pointer;
 `;
+
 const Characters = () => {
   let pageNumber = 1;
-  
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
     try {
-      
       const res = await axios.get(
         `http://localhost:8080/characters/${pageNumber}`
       );
-
       setCharacters(res.data.results);
     } catch (err) {
       console.log(err);
@@ -50,19 +48,15 @@ const Characters = () => {
 
   useEffect(() => {
     getCharacters();
-    console.log(pageNumber)
+    console.log(pageNumber);
   }, []);
 
-  // const characterOutside = characters.map((item, i) => (
-  //   <Character item={item} key={i} />
-  // ));
   return (
     <>
       <Container>
         {characters.map((item, i) => (
-        <Character item={item} key={i} />
+          <Character item={item} key={i} />
         ))}
-        {/* {characterOutside} */}
       </Container>
 
       <ContainerArrows direction="left" onClick={() => handleEvent("left")}>
