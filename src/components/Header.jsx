@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import axios from "axios";
 import Character from "./Character";
 
+
 const Container = styled.div`
   height: 60px;
   display: flex;
