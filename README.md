@@ -1,4 +1,4 @@
-#  <center>SURVIVOR-STORE</center> 
+#  <center>Star Wars API </center> 
 
  ## :bookmark: Index 
 
@@ -83,6 +83,8 @@ const project = {
 ![Get Characters](./assetsReadme/Screenshot%202022-09-30%20030213.png)
 
  In this picture you can see that it brings information from the Api. I did this by creating a backend: https://github.com/alextebbitt/swapi-back
+
+ I have created pagination in the backend with a limit of 10 per page. When you click on the big white arrow it will load the next 10 characters. 
 
  I decided to create cards for each character in a column style. This way you can see all the information more clearly. 
 
