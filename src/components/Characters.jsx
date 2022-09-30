@@ -23,10 +23,8 @@ const Characters = () => {
 
   const getCharacters = async () => {
     try {
-      const res = await axios.get(
-        `http://localhost:8080/characters/${page}`
-      );
-      setCharacters(res.data.results);
+      const res = await axios.get(`http://localhost:8080/characters/${page}`);
+      setCharacters(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -52,12 +50,16 @@ const Characters = () => {
         ))}
       </Container>
 
-      <ContainerArrows >
-        <ChevronLeftIcon direction="left" onClick={() => handleEvent("left")}
+      <ContainerArrows>
+        <ChevronLeftIcon
+          direction="left"
+          onClick={() => handleEvent("left")}
           style={{ color: "white", fontSize: 100 }}
         ></ChevronLeftIcon>
 
-        <ChevronRightIcon direction="right" onClick={() => handleEvent("right")}
+        <ChevronRightIcon
+          direction="right"
+          onClick={() => handleEvent("right")}
           style={{ color: "white", fontSize: 100 }}
         ></ChevronRightIcon>
       </ContainerArrows>
