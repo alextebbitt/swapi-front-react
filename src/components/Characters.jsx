@@ -18,7 +18,6 @@ const ContainerArrows = styled.div`
 `;
 
 const Characters = () => {
-  
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -35,13 +34,9 @@ const Characters = () => {
 
   const handleEvent = (direction) => {
     if (direction === "right" && page < 9) {
-      setPage(page + 1)
-      
-    } else {
-      if (direction === "left" && page > 1) {
-         setPage(page - 1);
-        
-      } 
+      setPage(page + 1);
+    } else if (direction === "left" && page > 1) {
+      setPage(page - 1);
     }
   };
 
@@ -57,16 +52,14 @@ const Characters = () => {
         ))}
       </Container>
 
-      <ContainerArrows direction="left" onClick={() => handleEvent("left")}>
-        <ChevronLeftIcon
+      <ContainerArrows >
+        <ChevronLeftIcon direction="left" onClick={() => handleEvent("left")}
           style={{ color: "white", fontSize: 100 }}
         ></ChevronLeftIcon>
 
-        <ContainerArrows direction="right" onClick={() => handleEvent("right")}>
-          <ChevronRightIcon
-            style={{ color: "white", fontSize: 100 }}
-          ></ChevronRightIcon>
-        </ContainerArrows>
+        <ChevronRightIcon direction="right" onClick={() => handleEvent("right")}
+          style={{ color: "white", fontSize: 100 }}
+        ></ChevronRightIcon>
       </ContainerArrows>
     </>
   );
