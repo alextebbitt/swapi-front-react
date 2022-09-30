@@ -48,7 +48,7 @@ const Header = () => {
         return;
       }
       const res = await axios.get(`http://localhost:8080/search/${query}`);
-      setData(res?.data?.results);
+      setData(res?.data);
     };
     fetchCharacters();
   }, [query]);
