@@ -40,7 +40,7 @@ const Header = () => {
      console.log("type of ",typeof query);
     
     const fetchCharacters = async () => {
-      if(query === "") {
+      if(!query) {
         return ; 
       }
       const res = await axios.get(`http://localhost:8080/search/${query}`);
@@ -49,12 +49,9 @@ const Header = () => {
       console.log("res.data is", res?.data?.results);
     };
     console.log("ifstatement", query);
-if(query.length === 0) {
-  
-} else {
 
   fetchCharacters();
-}
+
   }, [query]);
   
 

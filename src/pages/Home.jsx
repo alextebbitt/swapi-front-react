@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Arrows from "../components/Arrows";
 import Characters from "../components/Characters";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -17,7 +16,6 @@ const Home = () => {
       <Header />
       <Container>
         <Characters />
-        <Arrows />
         <Footer />
       </Container>
     </>
