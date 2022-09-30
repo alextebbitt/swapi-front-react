@@ -18,13 +18,14 @@ const ContainerArrows = styled.div`
 `;
 
 const Characters = () => {
-  let pageNumber = 1;
+  
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
 
   const getCharacters = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:8080/characters/${pageNumber}`
+        `http://localhost:8080/characters/${page}`
       );
       setCharacters(res.data.results);
     } catch (err) {
@@ -33,22 +34,20 @@ const Characters = () => {
   };
 
   const handleEvent = (direction) => {
-    if (direction === "right" && pageNumber < 9) {
-      pageNumber++;
-      getCharacters();
+    if (direction === "right" && page < 9) {
+      setPage(page + 1)
+      
     } else {
-      if (direction === "left" && pageNumber > 1) {
-        pageNumber--;
-        getCharacters();
-      } else {
-        return;
-      }
+      if (direction === "left" && page > 1) {
+         setPage(page - 1);
+        
+      } 
     }
   };
 
   useEffect(() => {
     getCharacters();
-  }, []);
+  }, [page]);
 
   return (
     <>
